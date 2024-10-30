@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concreate
+@model Testimonial
+
+@{
+    ViewData["Title"] = "UpdateTestimanial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateTestimanial", "Testimanial", FormMethod.Post))
+{
+    <div class="col-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Referans</h4>
+                <form class="forms-sample">
+
+                    @Html.HiddenFor(x => x.TestimonialID)
+                    <div class="form-group">
+                        <label>Ad Soyad</label>
+                        @Html.TextBoxFor(x => x.ClientName, new { @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("ClientName")</text>
+                    </div>
+                    <div class="form-group">
+                        <label>Firma Bilgisi</label>
+                        @Html.TextBoxFor(x => x.Company, new { @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("Company")</text>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Kaydet</button>
+                    <button class="btn btn-dark">Vazgeç</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

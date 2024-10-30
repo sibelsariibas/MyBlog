@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concreate
+@model List<Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Referans</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Firma</th>
+                            <th scope="col">Sil</th>
+                            <th scope="col" class="sort" data-sort="completion">Düzenle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.TestimonialID</td>
+                            <td>@item.ClientName</td>
+                            <td>@item.Company</td>
+                            <td> <a href="/Testimanial/DeleteTestimanial/@item.TestimonialID" class="btn btn-outline-danger">Sil</a></td>
+                            <td> <a href="/Testimanial/UpdateTestimanial/@item.TestimonialID" class="btn btn-outline-success">Güncelle</a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Testimanial/AddTestimanial" class="btn btn-outline-info">Referans Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

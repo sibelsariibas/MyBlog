@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "AddService";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddServices", "Services", FormMethod.Post))
+{
+    <div class="col-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Mesleki Kazanım</h4>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input type="text" class="form-control" placeholder="Yetenek" name="Title">
+                        <text style="color:gray">@Html.ValidationMessage("Title")</text>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

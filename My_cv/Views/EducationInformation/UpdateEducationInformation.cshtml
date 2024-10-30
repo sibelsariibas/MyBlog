@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concreate
+@model EducationInformation
+
+@{
+    ViewData["Title"] = "AddEducationInformation";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateEducationInformation", "EducationInformation", FormMethod.Post))
+{
+    <div class="col-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Eğitim</h4>
+                <form class="forms-sample">
+
+                    @Html.HiddenFor(x => x.EducationInformationID)
+                    <div class="form-group">
+                        <label>Öğrenim Kurumu</label>
+                        @Html.TextBoxFor(x => x.SchoolName, new { @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("SchoolName")</text>
+                    </div>
+                    <div class="form-group">
+                        <label>Branş</label>
+                        @Html.TextBoxFor(x => x.Branch, new { @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("Branch")</text>
+                    </div>
+                    <div class="form-group">
+                        <label>Meznuiyet Tarihi</label>
+                        @Html.TextBoxFor(x => x.GraduationDate, new { @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("GraduationDate")</text>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Kaydet</button>
+                    <button class="btn btn-dark">Vazgeç</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

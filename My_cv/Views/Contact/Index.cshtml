@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concreate
+@model Contact
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+{
+    <div class="col-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">İletişim Bilgileri</h4>
+                <form class="forms-sample">
+                    @Html.HiddenFor(x => x.ContactID)
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        @Html.TextBoxFor(x => x.Title, new {  @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("Title")</text>
+                    </div>
+                    <div class="form-group">
+                        <label>Mail Adresi</label>
+                        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("Mail")</text>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        @Html.TextBoxFor(x => x.Phone , new { @class = "form-control" })
+                        <text style="color:gray">@Html.ValidationMessage("Phone")</text>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
